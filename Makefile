@@ -1,5 +1,5 @@
 IMAGE=imega/base-builder
-TAG=1.1.1
+TAG=1.1.3
 
 build:
 	@docker build -t $(IMAGE):$(TAG) .

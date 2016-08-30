@@ -1,5 +1,10 @@
-### [1.1.0]
+### [1.1.3]
 
+  * Update alpine version 3.4
+
+### [1.1.1]
+
+  * Add options for installed packages
 
 ### [1.1.0]
 
