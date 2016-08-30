@@ -1,3 +1,8 @@
+### [1.3.0]
+
+  * Add repo community
+  * Add scr dir
+
 ### [1.2.0]
 
   * Image from scratch

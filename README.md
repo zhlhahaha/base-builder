@@ -14,6 +14,7 @@ build:
 	@docker run --rm \
 		-v $(CURDIR)/runner:/runner \
 		-v $(CURDIR)/build:/build \
+		-v $(CURDIR)/src:/src \
 		imega/base-builder:1.1.3 \
 # this packages installed for your image
 		--packages=" \
@@ -51,6 +52,25 @@ ENTRYPOINT ["php"]
 ```
 
 run `$docker run build -t test-image .`
+
+## Runner scripts
+You are allowed to use variables:
+  - $ROOTFS - This directory is the root of the file system.
+  - $SRC - This directory will be mounted in builder.
+
+e.g.
+
+You need to transfer configs in their way. Configs you place in `SRC` directory. Put command in `entrypoint.sh`
+
+```
+cp $SRC/daemon.sh $ROOTFS/app/daemon.sh
+cp $SRC/rsyncd.conf $ROOTFS/etc/rsyncd.conf
+```
+
+## Packages
+All packages can be found at http://pkgs.alpinelinux.org/packages. Specifying only the package name it will be taken from the main repository.
+After adding a prefix to the package you will be able to determine the Eje repository. The available prefixes is `main`, `testing`, `community`.
+e.g.: `php7-common@testing` from http://dl-cdn.alpinelinux.org/alpine/edge/testing
 
 ## The MIT License (MIT)
 
