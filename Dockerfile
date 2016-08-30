@@ -1,11 +1,7 @@
-FROM alpine:3.4
+FROM scratch
 
 MAINTAINER Dmitry Gavriloff <info@imega.ru>
 
-VOLUME ["/build", "/src", "/runner"]
+WORKDIR /data
 
-ADD build.sh /
-
-RUN apk --update add bash
-
-ENTRYPOINT ["/build.sh"]
+VOLUME ["/data", "/cache"]
