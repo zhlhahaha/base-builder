@@ -1,0 +1,64 @@
+# Builder
+
+Create rootfs for docker
+
+## Usage
+
+In your new project add folder `runner`. This dir for shell scripts(bash). Put `entrypoint.sh` script in `runner` this script will run first.
+Next step. Put in project `Makefile`.
+
+```
+# Build rootfs for php
+
+build:
+	@docker run --rm \
+		-v $(CURDIR)/runner:/runner \
+		-v $(CURDIR)/build:/build \
+		imega/base-builder:1.1.3 \
+# this packages installed for your image
+		--packages=" \
+			git \
+			php7 \
+			php7-common@testing \
+			" \
+# this packages installed for auxiliary tools
+		-d="curl"
+
+.PHONY: build
+```
+
+  * -p --packages - this packages installed for your image
+  * -d --dev-packages - this packages installed for auxiliary tools
+
+## Start build
+
+`make build`
+
+You will receive a rootfs.tar.gz in a folder build.
+
+## Build your image
+
+Put Docker file in project. e.g.
+
+```
+FROM imega/base-builder:1.2.0
+
+MAINTAINER Dmitry Gavriloff <info@imega.ru>
+
+ENV COMPOSER_CACHE_DIR=/cache
+
+ADD build/rootfs.tar.gz /
+
+ENTRYPOINT ["php"]
+```
+
+run `$docker run build -t test-image .`
+
+## The MIT License (MIT)
+
+Copyright © 2016 iMega <info@imega.ru>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
