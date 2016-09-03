@@ -29,6 +29,11 @@ echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/re
 echo "@main http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
 echo "@community http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
 
+echo "@v27 http://dl-cdn.alpinelinux.org/alpine/v2.7/main" >> /etc/apk/repositories
+echo "@v31 http://dl-cdn.alpinelinux.org/alpine/v3.1/main" >> /etc/apk/repositories
+echo "@v32 http://dl-cdn.alpinelinux.org/alpine/v3.2/main" >> /etc/apk/repositories
+echo "@v33 http://dl-cdn.alpinelinux.org/alpine/v3.3/main" >> /etc/apk/repositories
+
 apk --repositories-file /etc/apk/repositories --update --allow-untrusted --initdb --no-cache --root $ROOTFS add $PACKAGES
 
 if [[ ! -z $DEV_PACKAGES ]]; then

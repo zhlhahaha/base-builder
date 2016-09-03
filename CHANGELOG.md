@@ -1,3 +1,7 @@
+### [1.3.1]
+
+  * Add repos 2.7, 3.1, 3.2, 3.3
+
 ### [1.3.0]
 
   * Add repo community
