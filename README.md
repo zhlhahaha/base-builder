@@ -2,6 +2,8 @@
 
 Create rootfs for docker
 
+[![](https://images.microbadger.com/badges/image/imega/base-builder.svg)](http://microbadger.com/images/imega/base-builder "Get your own image badge on microbadger.com") [![CircleCI](https://circleci.com/gh/imega-docker/base-builder.svg?style=svg)](https://circleci.com/gh/imega-docker/base-builder)
+
 ## Usage
 
 In your new project add folder `runner`. This dir for shell scripts(bash). Put `entrypoint.sh` script in `runner` this script will run first.
