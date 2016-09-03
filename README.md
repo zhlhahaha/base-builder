@@ -17,7 +17,7 @@ build:
 		-v $(CURDIR)/runner:/runner \
 		-v $(CURDIR)/build:/build \
 		-v $(CURDIR)/src:/src \
-		imega/base-builder:1.1.3 \
+		imega/base-builder \
 # this packages installed for your image
 		--packages=" \
 			git \
