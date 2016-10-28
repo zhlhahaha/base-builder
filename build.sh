@@ -33,6 +33,8 @@ echo "@v27 http://dl-cdn.alpinelinux.org/alpine/v2.7/main" >> /etc/apk/repositor
 echo "@v31 http://dl-cdn.alpinelinux.org/alpine/v3.1/main" >> /etc/apk/repositories
 echo "@v32 http://dl-cdn.alpinelinux.org/alpine/v3.2/main" >> /etc/apk/repositories
 echo "@v33 http://dl-cdn.alpinelinux.org/alpine/v3.3/main" >> /etc/apk/repositories
+echo "@v34 http://dl-cdn.alpinelinux.org/alpine/v3.4/main" >> /etc/apk/repositories
+echo "@v35 http://dl-cdn.alpinelinux.org/alpine/v3.5/main" >> /etc/apk/repositories
 
 apk --repositories-file /etc/apk/repositories --update --allow-untrusted --initdb --no-cache --root $ROOTFS add $PACKAGES
 
