@@ -1,3 +1,7 @@
+### [1.4.0]
+
+  * Update alpine version 3.5
+
 ### [1.3.2]
 
   * Add repo 3.5
