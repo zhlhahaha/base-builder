@@ -12,6 +12,7 @@ jobs:
     machine:
       enabled: true
     steps:
+      - checkout
       - run: |
           make release TAG=$CIRCLE_TAG || exit 1
 
