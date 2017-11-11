@@ -44,9 +44,7 @@ You will receive a rootfs.tar.gz in a folder build.
 Put Docker file in project. e.g.
 
 ```
-FROM imega/base-builder:1.2.0
-
-MAINTAINER Dmitry Gavriloff <info@imega.ru>
+FROM scratch
 
 ADD build/rootfs.tar.gz /
 

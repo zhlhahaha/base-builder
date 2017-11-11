@@ -1,5 +1,9 @@
 IMAGE=imega/base-builder
-TAG=1.1.3
+TAG=latest
 
 build:
 	@docker build -t $(IMAGE):$(TAG) .
+
+release: build
+	@docker login --username $(DOCKER_USER) --password $(DOCKER_PASS)
+	@docker push $(IMAGE):$(TAG)
