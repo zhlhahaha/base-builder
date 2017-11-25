@@ -1,3 +1,7 @@
+### [1.5.0]
+
+  * Update alpine version 3.6
+
 ### [1.4.0]
 
   * Update alpine version 3.5
