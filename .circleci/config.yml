@@ -21,7 +21,7 @@ workflows:
   version: 2
   test_and_release:
     jobs:
-      - tests
+      - tests:
           filters:
             tags:
               only: /.*/
