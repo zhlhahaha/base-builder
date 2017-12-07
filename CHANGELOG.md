@@ -1,3 +1,7 @@
+### [1.6.0]
+
+  * Update alpine version 3.7
+
 ### [1.5.1]
 
   * Append repos v33community, v34community, v35community, v36community, v37community
