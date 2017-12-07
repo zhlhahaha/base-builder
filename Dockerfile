@@ -1,6 +1,6 @@
 FROM alpine:3.6
 
-MAINTAINER Dmitry Gavriloff <info@imega.ru>
+MAINTAINER Dmitry Stoletoff <info@imega.ru>
 
 VOLUME ["/build", "/src", "/runner"]
 

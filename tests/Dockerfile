@@ -1,6 +1,6 @@
-FROM imega/base-builder:1.2.0
+FROM scratch
 
-MAINTAINER Dmitry Gavriloff <info@imega.ru>
+MAINTAINER Dmitry Stoletoff <info@imega.ru>
 
 ADD build/rootfs.tar.gz /
 

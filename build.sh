@@ -25,22 +25,30 @@ if [[ -z $PACKAGES ]]; then
     exit 1
 fi
 
-echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
-echo "@main http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
-echo "@community http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
-
-echo "@v24 http://dl-cdn.alpinelinux.org/alpine/v2.4/main" >> /etc/apk/repositories
-echo "@v25 http://dl-cdn.alpinelinux.org/alpine/v2.5/main" >> /etc/apk/repositories
-echo "@v26 http://dl-cdn.alpinelinux.org/alpine/v2.6/main" >> /etc/apk/repositories
-echo "@v27 http://dl-cdn.alpinelinux.org/alpine/v2.7/main" >> /etc/apk/repositories
-echo "@v30 http://dl-cdn.alpinelinux.org/alpine/v3.0/main" >> /etc/apk/repositories
-echo "@v31 http://dl-cdn.alpinelinux.org/alpine/v3.1/main" >> /etc/apk/repositories
-echo "@v32 http://dl-cdn.alpinelinux.org/alpine/v3.2/main" >> /etc/apk/repositories
-echo "@v33 http://dl-cdn.alpinelinux.org/alpine/v3.3/main" >> /etc/apk/repositories
-echo "@v34 http://dl-cdn.alpinelinux.org/alpine/v3.4/main" >> /etc/apk/repositories
-echo "@v35 http://dl-cdn.alpinelinux.org/alpine/v3.5/main" >> /etc/apk/repositories
-echo "@v36 http://dl-cdn.alpinelinux.org/alpine/v3.6/main" >> /etc/apk/repositories
-echo "@v37 http://dl-cdn.alpinelinux.org/alpine/v3.7/main" >> /etc/apk/repositories
+cat << 'EOF' > /etc/apk/repositories
+http://dl-cdn.alpinelinux.org/alpine/v3.7/main
+http://dl-cdn.alpinelinux.org/alpine/v3.7/community
+@testing      http://dl-cdn.alpinelinux.org/alpine/edge/testing
+@main.        http://dl-cdn.alpinelinux.org/alpine/edge/main
+@community    http://dl-cdn.alpinelinux.org/alpine/edge/community
+@v24          http://dl-cdn.alpinelinux.org/alpine/v2.4/main
+@v25          http://dl-cdn.alpinelinux.org/alpine/v2.5/main
+@v26          http://dl-cdn.alpinelinux.org/alpine/v2.6/main
+@v27          http://dl-cdn.alpinelinux.org/alpine/v2.7/main
+@v30          http://dl-cdn.alpinelinux.org/alpine/v3.0/main
+@v31          http://dl-cdn.alpinelinux.org/alpine/v3.1/main
+@v32          http://dl-cdn.alpinelinux.org/alpine/v3.2/main
+@v33          http://dl-cdn.alpinelinux.org/alpine/v3.3/main
+@v33community http://dl-cdn.alpinelinux.org/alpine/v3.3/community
+@v34          http://dl-cdn.alpinelinux.org/alpine/v3.4/main
+@v34community http://dl-cdn.alpinelinux.org/alpine/v3.4/community
+@v35          http://dl-cdn.alpinelinux.org/alpine/v3.5/main
+@v35community http://dl-cdn.alpinelinux.org/alpine/v3.5/community
+@v36          http://dl-cdn.alpinelinux.org/alpine/v3.6/main
+@v36community http://dl-cdn.alpinelinux.org/alpine/v3.6/community
+@v37          http://dl-cdn.alpinelinux.org/alpine/v3.7/main
+@v37community http://dl-cdn.alpinelinux.org/alpine/v3.7/community
+EOF
 
 apk --repositories-file /etc/apk/repositories --update --allow-untrusted --initdb --no-cache --root $ROOTFS add $PACKAGES
 
