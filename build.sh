@@ -20,11 +20,6 @@ case $i in
 esac
 done
 
-if [[ -z $PACKAGES ]]; then
-    echo "Nothing to install :("
-    exit 1
-fi
-
 cat << 'EOF' > /etc/apk/repositories
 http://dl-cdn.alpinelinux.org/alpine/v3.7/main
 http://dl-cdn.alpinelinux.org/alpine/v3.7/community
