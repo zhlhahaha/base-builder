@@ -72,7 +72,7 @@ cp $SRC/rsyncd.conf $ROOTFS/etc/rsyncd.conf
 ## Packages
 
 All packages can be found at http://pkgs.alpinelinux.org/packages. Specifying only the package name it will be taken from the main repository.
-After adding a prefix to the package you will be able to determine the Eje repository. The available prefixes is `main`, `testing`, `community`, `v24`, `v25`, `v26`, `v27`, `v30`, `v31`, `v32`, `v33`, `v33community`, `v34`, `v34community`, `v35`, `v35community`, `v36`, `v36community`, `v37`, `v37community`, `v38`, `v38community`.
+After adding a prefix to the package you will be able to determine the Eje repository. The available prefixes is `main`, `testing`, `community`, `v24`, `v25`, `v26`, `v27`, `v30`, `v31`, `v32`, `v33`, `v33community`, `v34`, `v34community`, `v35`, `v35community`, `v36`, `v36community`, `v37`, `v37community`, `v38`, `v38community`, `v39`, `v39community`.
 e.g.: `php7-common@community` from http://dl-cdn.alpinelinux.org/alpine/edge/community
 
 ## The MIT License (MIT)

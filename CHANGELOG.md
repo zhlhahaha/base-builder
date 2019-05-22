@@ -1,3 +1,8 @@
+### [1.8.0]
+
+- Update alpine version 3.9
+- Append repos v39 v39community
+
 ### [1.7.0]
 
 - Update alpine version 3.8
