@@ -21,8 +21,8 @@ esac
 done
 
 cat << 'EOF' > /etc/apk/repositories
-http://dl-cdn.alpinelinux.org/alpine/v3.7/main
-http://dl-cdn.alpinelinux.org/alpine/v3.7/community
+http://dl-cdn.alpinelinux.org/alpine/v3.8/main
+http://dl-cdn.alpinelinux.org/alpine/v3.8/community
 @testing      http://dl-cdn.alpinelinux.org/alpine/edge/testing
 @main.        http://dl-cdn.alpinelinux.org/alpine/edge/main
 @community    http://dl-cdn.alpinelinux.org/alpine/edge/community
@@ -43,6 +43,8 @@ http://dl-cdn.alpinelinux.org/alpine/v3.7/community
 @v36community http://dl-cdn.alpinelinux.org/alpine/v3.6/community
 @v37          http://dl-cdn.alpinelinux.org/alpine/v3.7/main
 @v37community http://dl-cdn.alpinelinux.org/alpine/v3.7/community
+@v38          http://dl-cdn.alpinelinux.org/alpine/v3.8/main
+@v38community http://dl-cdn.alpinelinux.org/alpine/v3.8/community
 EOF
 
 apk --repositories-file /etc/apk/repositories --update --allow-untrusted --initdb --no-cache --root $ROOTFS add $PACKAGES
