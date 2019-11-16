@@ -2,7 +2,7 @@
 
 Create rootfs for docker
 
-[![](https://images.microbadger.com/badges/image/imega/base-builder.svg)](http://microbadger.com/images/imega/base-builder "Get your own image badge on microbadger.com") [![CircleCI](https://circleci.com/gh/imega-docker/base-builder.svg?style=svg)](https://circleci.com/gh/imega-docker/base-builder)
+[![](https://images.microbadger.com/badges/image/imega/base-builder.svg)](http://microbadger.com/images/imega/base-builder "Get your own image badge on microbadger.com") [![CircleCI](https://circleci.com/gh/imega-docker/base-builder.svg?style=svg)](https://circleci.com/gh/imega-docker/base-builder) [![Build Status](https://travis-ci.org/imega-docker/base-builder.svg?branch=master)](https://travis-ci.org/imega-docker/base-builder)
 
 ## Usage
 
