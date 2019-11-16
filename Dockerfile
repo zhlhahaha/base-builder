@@ -1,6 +1,6 @@
 FROM alpine:3.10
 
-LABEL maintainer="Dmitry Stoletoff <info@imega.ru>" \
+LABEL maintainer="Dmitry Stoletoff info@imega<dot>ru" \
     version="1.9.0" \
     description="Create rootfs for docker."
 
