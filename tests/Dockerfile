@@ -1,6 +1,6 @@
 FROM scratch
 
-MAINTAINER Dmitry Stoletoff <info@imega.ru>
+LABEL maintainer="Dmitry Stoletoff info@imega<dot>ru"
 
 ADD build/rootfs.tar.gz /
 
