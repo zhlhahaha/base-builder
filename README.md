@@ -21,8 +21,7 @@ build:
 # this packages installed for your image
 		--packages=" \
 			git \
-			php7 \
-			php7-common@testing \
+			php7@edge-testing \
 			" \
 # this packages installed for auxiliary tools
 		-d="curl"
@@ -30,8 +29,8 @@ build:
 .PHONY: build
 ```
 
-- -p --packages - this packages installed for your image
-- -d --dev-packages - this packages installed for auxiliary tools
+-   -p --packages - this packages installed for your image
+-   -d --dev-packages - this packages installed for auxiliary tools
 
 ## Start build
 
@@ -57,8 +56,8 @@ run `$docker run build -t test-image .`
 
 You are allowed to use variables:
 
-- \$ROOTFS - This directory is the root of the file system.
-- \$SRC - This directory will be mounted in builder.
+-   \$ROOTFS - This directory is the root of the file system.
+-   \$SRC - This directory will be mounted in builder.
 
 e.g.
 
@@ -72,12 +71,46 @@ cp $SRC/rsyncd.conf $ROOTFS/etc/rsyncd.conf
 ## Packages
 
 All packages can be found at http://pkgs.alpinelinux.org/packages. Specifying only the package name it will be taken from the main repository.
-After adding a prefix to the package you will be able to determine the Eje repository. The available prefixes is `main`, `testing`, `community`, `v24`, `v25`, `v26`, `v27`, `v30`, `v31`, `v32`, `v33`, `v33community`, `v34`, `v34community`, `v35`, `v35community`, `v36`, `v36community`, `v37`, `v37community`, `v38`, `v38community`, `v39`, `v39community`.
-e.g.: `php7-common@community` from http://dl-cdn.alpinelinux.org/alpine/edge/community
+After adding a prefix to the package you will be able to determine the Eje repository.
+
+The available prefixes is
+
+-   `stable-main`
+-   `stable-community`
+-   `edge-main`
+-   `edge-testing`
+-   `edge-community`
+-   `v311`
+-   `v311community`
+-   `v310`
+-   `v310community`
+-   `v39`
+-   `v39community`
+-   `v38`
+-   `v38community`
+-   `v37`
+-   `v37community`
+-   `v36`
+-   `v36community`
+-   `v35`
+-   `v35community`
+-   `v34`
+-   `v34community`
+-   `v33`
+-   `v33community`
+-   `v32`
+-   `v31`
+-   `v30`
+-   `v27`
+-   `v26`
+-   `v25`
+-   `v24`
+
+e.g.: `php7@edge-community` from http://dl-cdn.alpinelinux.org/alpine/edge/community
 
 ## The MIT License (MIT)
 
-Copyright © 2016 iMega <info@imega.ru>
+Copyright © 2020 iMega <info@imega.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

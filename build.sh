@@ -21,11 +21,16 @@ esac
 done
 
 cat << 'EOF' > /etc/apk/repositories
-http://dl-cdn.alpinelinux.org/alpine/v3.9/main
-http://dl-cdn.alpinelinux.org/alpine/v3.9/community
+http://dl-cdn.alpinelinux.org/alpine/v3.10/main
+http://dl-cdn.alpinelinux.org/alpine/v3.10/community
 @testing      http://dl-cdn.alpinelinux.org/alpine/edge/testing
-@main.        http://dl-cdn.alpinelinux.org/alpine/edge/main
+@main         http://dl-cdn.alpinelinux.org/alpine/edge/main
 @community    http://dl-cdn.alpinelinux.org/alpine/edge/community
+@edge-testing   http://dl-cdn.alpinelinux.org/alpine/edge/testing
+@edge-main      http://dl-cdn.alpinelinux.org/alpine/edge/main
+@edge-community http://dl-cdn.alpinelinux.org/alpine/edge/community
+@stable-main      http://dl-cdn.alpinelinux.org/alpine/latest-stable/main
+@stable-community http://dl-cdn.alpinelinux.org/alpine/latest-stable/community
 @v24          http://dl-cdn.alpinelinux.org/alpine/v2.4/main
 @v25          http://dl-cdn.alpinelinux.org/alpine/v2.5/main
 @v26          http://dl-cdn.alpinelinux.org/alpine/v2.6/main
@@ -45,8 +50,12 @@ http://dl-cdn.alpinelinux.org/alpine/v3.9/community
 @v37community http://dl-cdn.alpinelinux.org/alpine/v3.7/community
 @v38          http://dl-cdn.alpinelinux.org/alpine/v3.8/main
 @v38community http://dl-cdn.alpinelinux.org/alpine/v3.8/community
-@v39         http://dl-cdn.alpinelinux.org/alpine/v3.9/main
+@v39          http://dl-cdn.alpinelinux.org/alpine/v3.9/main
 @v39community http://dl-cdn.alpinelinux.org/alpine/v3.9/community
+@v310          http://dl-cdn.alpinelinux.org/alpine/v3.10/main
+@v310community http://dl-cdn.alpinelinux.org/alpine/v3.10/community
+@v311          http://dl-cdn.alpinelinux.org/alpine/v3.11/main
+@v311community http://dl-cdn.alpinelinux.org/alpine/v3.11/community
 EOF
 
 apk --repositories-file /etc/apk/repositories --update --allow-untrusted --initdb --no-cache --root $ROOTFS add $PACKAGES

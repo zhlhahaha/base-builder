@@ -1,6 +1,8 @@
-FROM alpine:3.9
+FROM alpine:3.10
 
-MAINTAINER Dmitry Stoletoff <info@imega.ru>
+LABEL maintainer="Dmitry Stoletoff <info@imega.ru>" \
+    version="1.9.0" \
+    description="Create rootfs for docker."
 
 VOLUME ["/build", "/src", "/runner"]
 

@@ -8,6 +8,6 @@ build-fs:
 		--packages="tidyhtml"
 
 test: build
-	echo "<hTmL></hTmL>" | docker run --rm=false -i imega/tidy -xml -iqu
+	@echo "<hTmL></hTmL>" | docker run --rm=false -i imega/tidy -xml -iqu | grep "<HTML></HTML>"
 
 .PHONY: build

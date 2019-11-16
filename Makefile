@@ -7,3 +7,6 @@ build:
 release: build
 	@docker login --username $(DOCKER_USER) --password $(DOCKER_PASS)
 	docker push $(IMAGE):$(TAG)
+
+test: build
+	$(MAKE) test -C tests
