@@ -1,4 +1,4 @@
-IMAGE=murilofv/base-builder
+IMAGE=imega/base-builder
 TAG=latest
 ARCH=$(shell uname -m)
 

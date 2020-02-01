@@ -8,13 +8,6 @@ jobs:
       - checkout
       - run: |
           make test -C tests || exit 1
-  release:
-    machine:
-      enabled: true
-    steps:
-      - checkout
-      - run: |
-          make release TAG=$CIRCLE_TAG || exit 1
 
 workflows:
   version: 2
@@ -24,11 +17,3 @@ workflows:
           filters:
             tags:
               only: /.*/
-      - release:
-          requires:
-            - tests
-          filters:
-            tags:
-              only: /[0-9]+(\.[0-9]+)*/
-            branches:
-              ignore: /.*/

@@ -1,7 +1,3 @@
-branches:
-  only:
-    - master
-    - ppc64le_support
 language: ruby
 services:
   - docker
