@@ -1,7 +1,7 @@
 FROM alpine:3.10
 
 LABEL maintainer="Dmitry Stoletoff info@imega<dot>ru" \
-    version="1.9.0" \
+    version="1.9.1" \
     description="Create rootfs for docker."
 
 VOLUME ["/build", "/src", "/runner"]

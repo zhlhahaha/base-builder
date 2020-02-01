@@ -1,3 +1,7 @@
+### [1.9.1]
+
+-   Add support for ppc64le architecture #7 (Murilo Fossa Vicentini muvic@linux.ibm.com)
+
 ### [1.9.0]
 
 -   Update alpine version 3.10
