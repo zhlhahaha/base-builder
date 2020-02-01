@@ -1,8 +1,50 @@
-branches:
-  only:
-    - master
 language: ruby
 services:
   - docker
-script:
-  - make test
+env:
+  global:
+    - VERSION=1.9.1
+    - IMAGE=imega/base-builder
+
+stages:
+  - Test
+  - Arch-Release
+  - Manifest-Release
+
+jobs:
+  include:
+    - stage: Test
+      arch: amd64
+      os: linux
+      script: make test
+    - stage: Test
+      arch: ppc64le
+      os: linux
+      script: make test
+
+    - stage: Arch-Release
+      if: branch = master
+      os: linux
+      arch: amd64
+      script:
+        - ARCH_RELEASE=0
+        - docker pull $IMAGE:$VERSION-$TRAVIS_CPU_ARCH || ARCH_RELEASE=1
+        - "[ ${ARCH_RELEASE} == 1 ] && (make release DOCKER_USER=$DOCKER_USER DOCKER_PASS=$DOCKER_PASS IMAGE=$IMAGE TAG=$VERSION)"
+    - stage: Arch-Release
+      if: branch = master
+      os: linux
+      arch: ppc64le
+      script:
+        - ARCH_RELEASE=0
+        - docker pull $IMAGE:$VERSION-$TRAVIS_CPU_ARCH || ARCH_RELEASE=1
+        - "[ ${ARCH_RELEASE} == 1 ] && (make release DOCKER_USER=$DOCKER_USER DOCKER_PASS=$DOCKER_PASS IMAGE=$IMAGE TAG=$VERSION)"
+
+    - stage: Manifest-Release
+      if: branch = master
+      arch: amd64
+      os: linux
+      script:
+        - export DOCKER_CLI_EXPERIMENTAL=enabled
+        - MANIFEST_RELEASE=0
+        - docker pull $IMAGE:$VERSION || MANIFEST_RELEASE=1
+        - "[ ${MANIFEST_RELEASE} == 1 ] && (make release-manifest DOCKER_USER=$DOCKER_USER DOCKER_PASS=$DOCKER_PASS IMAGE=$IMAGE TAG=$VERSION)"

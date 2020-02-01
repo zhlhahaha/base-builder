@@ -1,10 +1,18 @@
+IMAGE=imega/base-builder
+TAG=latest
+ARCH=$(shell uname -m)
+
+ifeq ($(ARCH),x86_64)
+        ARCH=amd64
+endif
+
 build: build-fs
 	@docker build -t imega/tidy .
 
 build-fs:
 	@docker run --rm=false \
 		-v $(CURDIR)/build:/build \
-		imega/base-builder \
+		$(IMAGE):$(TAG)-$(ARCH) \
 		--packages="tidyhtml"
 
 test: build
