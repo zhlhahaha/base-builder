@@ -1,4 +1,4 @@
-IMAGE=murilofv/base-builder
+IMAGE=imega/base-builder
 TAG=latest
 ARCH=$(shell uname -m)
 
@@ -7,17 +7,17 @@ ifeq ($(ARCH),x86_64)
 endif
 
 build:
-	echo $(ARCH)
 	@docker build -t $(IMAGE):$(TAG)-$(ARCH) .
 
-release: build
+login:
 	@docker login --username $(DOCKER_USER) --password $(DOCKER_PASS)
+
+release: login build
 	@docker tag $(IMAGE):$(TAG)-$(ARCH) $(IMAGE):latest-$(ARCH)
 	@docker push $(IMAGE):$(TAG)-$(ARCH)
 	@docker push $(IMAGE):latest-$(ARCH)
 
-release-manifest:
-	@docker login --username $(DOCKER_USER) --password $(DOCKER_PASS)
+release-manifest: login
 	@docker manifest create $(IMAGE):$(TAG) $(IMAGE):$(TAG)-amd64 $(IMAGE):$(TAG)-ppc64le
 	@docker manifest create $(IMAGE):latest $(IMAGE):latest-amd64 $(IMAGE):latest-ppc64le
 	@docker manifest push $(IMAGE):$(TAG)
